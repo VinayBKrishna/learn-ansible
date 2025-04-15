@@ -17,3 +17,15 @@
       ansible.builtin.lineinfile:
         path: /tmp/newFile
         line: "{{ output.uid }} - is the uid"
+
+    - name: Add string using a condition
+      ansible.builtin.lineinfile:
+        path: /tmp/newFile
+        line: "this line is added if uid is zero"
+      when: output.uid == 0
+
+    - name: Add string using a condition
+      ansible.builtin.lineinfile:
+        path: /tmp/newFile
+        line: "this line is added if uid is not zero"
+      when: output.uid != 0
