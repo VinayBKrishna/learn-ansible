@@ -3,10 +3,10 @@
 - hosts: labservers
   become: yes
   tasks:
-    - name: create file
+    - name: Create file
       ansible.builtin.file:
-          path: /newFile
-          state: touch #to create a file
+        path: /newFile
+        state: touch
       register: output
 
     - name: Show registered output
@@ -16,4 +16,4 @@
     - name: Add UID to the file
       ansible.builtin.lineinfile:
         path: /newFile
-        line: "{{ output.uid }} - is the uid "
+        line: "{{ output.uid }} - is the uid"
