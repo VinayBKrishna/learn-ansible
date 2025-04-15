@@ -16,8 +16,8 @@
 
     - name: to retrive a non-existant file and ignore errors
       ansible.builtin.get_url:
-        src: http://innaghiyev3c/index.html
-        desc: /tmp/file2
+        url: http://innaghiyev3c/index.html
+        dest: /tmp/file2
       ignore_errors: yes
 
     - name: file is not found yet the next like is executed
