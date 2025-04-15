@@ -85,9 +85,11 @@ all:                          #top level group with all hosts and child group
 #***************************Inventory Management***********************
 #An inventory is a list of hosts that Ansible manages
 
-#
+#***************************Block Groups***********************
+#Block groups and rescues - like a try and catch.
 
-
+#***************************Selectively Run Specific Tasks In Playbooks Using Tags***********************
+#tags we can deploy only application stage or only database stage
 
 
 

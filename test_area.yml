@@ -2,43 +2,24 @@
 
 - hosts: labservers
   become: yes
-
   tasks:
-    - name: Create file
-      ansible.builtin.file:
-        path: /tmp/newFile
-        state: touch
-      register: output
-
-    - name: Show registered output
+    - name: 1st set of commands
       ansible.builtin.debug:
-        var: output
-
-    - name: to retrive a non-existant file and ignore errors
-      ansible.builtin.get_url:
-        url: http://innaghiyev3c/index.html
-        dest: /tmp/file2
-      ignore_errors: yes
-
-    - name: file is not found yet the next like is executed
+        msg: "1st set of commands"
+      tags :
+        - one
+        -
+    - name: 2nd set of commands
       ansible.builtin.debug:
-        msg: "next set of commands"
-
-    - name: To retrive a non-existant file and using block and rescue method
-      block:
-        - name: Attempt to download the file
-          ansible.builtin.get_url:
-            url: "http://innaghiyev3c/index.html"
-            dest: /tmp/file3
-      rescue:
-        - name: Handle the error
-          ansible.builtin.debug:
-            msg: "Failed to download the file, but rescued successfully!"
-
-      always:
-        - name: Handle the error
-          ansible.builtin.debug:
-            msg: "play done"
+        msg: "2nd set of commands"
+      tags:
+        - two
+        -
+    - name: 3srd set of commands
+      ansible.builtin.debug:
+        msg: "3rd set of commands"
+      tags:
+        - three
 
 
 
