@@ -1,7 +1,0 @@
-- name: Testing env for local
-  hosts: localhost
-  connection: local
-  tasks:
-    - name: debug
-      ansible.builtin.debug:
-        msg: "hewllo"

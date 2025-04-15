@@ -1,0 +1,7 @@
+all:
+  hosts: 172.31.4.173
+  children:
+    webservers:
+      hosts: 172.31.85.255
+    labservers:
+      hosts: 172.31.5.108
