@@ -2,11 +2,7 @@
 
 - hosts: labservers
   become: yes
-  handlers:
-    - name: Checking handler 1
-      ansible.builtin.debug:
-        msg: " handler 1 is working"
-      listen: "notify server"
+
   tasks:
     - name: Create file
       ansible.builtin.file:
@@ -21,13 +17,12 @@
     - name: Add UID to the file
       ansible.builtin.lineinfile:
         path: /tmp/newFile
-        line: "{{ output.uid }} - is the uid"
+        line: "{{ items }} - is the uid"
+      with_items:
+        - sam
+        - sana
+        - mina
 
-    - name: Add string using a condition
-      ansible.builtin.lineinfile:
-        path: /tmp/newFile
-        line: "notify server"
-      notify: "notify server"
 
 
 
