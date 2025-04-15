@@ -27,8 +27,8 @@
     - name: To retrive a non-existant file and using block and rescue method
       block:
         ansible.builtin.get_url:
-          src: "http://innaghiyev3c/index.html"
-          desc: /tmp/file2
+          url: "http://innaghiyev3c/index.html"
+          dest: /tmp/file2
       rescue:
         - debug: msg= " the file does not exists! "
       always:
