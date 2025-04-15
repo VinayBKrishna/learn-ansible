@@ -2,6 +2,11 @@
 
 - hosts: labservers
   become: yes
+  handlers:
+    - name: Checking handler 1
+      ansible.builtin.debug:
+        msg: " handler 1 is working"
+      listen: "notify server"
   tasks:
     - name: Create file
       ansible.builtin.file:
@@ -21,11 +26,8 @@
     - name: Add string using a condition
       ansible.builtin.lineinfile:
         path: /tmp/newFile
-        line: "this line is added if uid is zero"
-      when: output.uid == 0
+        line: "notify server"
+      notify: "notify server"
 
-    - name: Add string using a condition
-      ansible.builtin.lineinfile:
-        path: /tmp/newFile
-        line: "this line is added if uid is not zero"
-      when: output.uid != 0
+
+
