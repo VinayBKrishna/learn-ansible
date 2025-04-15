@@ -14,15 +14,25 @@
       ansible.builtin.debug:
         var: output
 
-    - name: Add UID to the file
-      ansible.builtin.lineinfile:
-        path: /tmp/newFile
-        line: "{{ item }} - is the uid"
-      with_items:
-        - sam
-        - sana
-        - mina
+    - name: to retrive a non-existant file and ignore errors
+      ansible.builtin.get_url:
+        src: "http://innaghiyev3c/index.html"
+        desc: /tmp/file2
+      ignore_errors: yes
 
+    - name: file is not found yet the next like is executed
+      ansible.builtin.debug:
+        msg: "next set of commands"
+
+    - name: To retrive a non-existant file and using block and rescue method
+      block:
+        ansible.builtin.get_url:
+          src: "http://innaghiyev3c/index.html"
+          desc: /tmp/file2
+      rescue:
+        - debug: msg= " the file does not exists! "
+      always:
+        - debug: msg=" Play done! "
 
 
 
