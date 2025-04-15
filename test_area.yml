@@ -11,7 +11,7 @@
 
     - name: Show registered output
       ansible.builtin.debug:
-        var: {{ output }}
+        var: output
 
     - name: Add UID to the file
       ansible.builtin.lineinfile:
