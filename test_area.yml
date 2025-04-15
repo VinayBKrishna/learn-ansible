@@ -5,7 +5,7 @@
   tasks:
     - name: create file
       ansible.builtin.file:
-          path: /tmp/newFile
+          path: /newFile
           state: touch #to create a file
       register: output
 
@@ -15,5 +15,5 @@
 
     - name: Add UID to the file
       ansible.builtin.lineinfile:
-        path: /tmp/newFile
+        path: /newFile
         line: "{{ output.uid }} - is the uid "
