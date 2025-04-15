@@ -16,4 +16,4 @@
     - name: Add UID to the file
       ansible.builtin.lineinfile:
         path: /tmp/newFile
-        line: "{{ output.uid }}"
+        line: "{{ output.uid }} - is the uid "
