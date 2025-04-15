@@ -1,22 +1,19 @@
 
---- #to mention that this is a playbook
-- hosts: labservers #define hosts group
-  become: yes #become means sudo, by default is root user
-  tasks: #what to do on defined hosts
-    - name: install apache #task name, can be anything
-      yum: #what module to call
-        name: httpd #package name
-        state: latest #state of that package, version, absent etc.
-    - name: start and enable httpd #task name
-      service: #module name
-        name: httpd #service name
-        state: started #what is desired state of that service
-        enabled: yes #enable service, equal to systemctl enable httpd
-    - name: create index.html #name of task
-      file: #module name
-        path: /var/www/html/index.html #path of file to change
-        state: touch #what to do with that file, in our case - touch
-    - name: add a linex to index.html #task name
-      lineinfile: #module name
-        path: /var/www/html/index.html #path to the file
-        line: "Hello World" #check line, if not exist add it
+
+- hosts: labservers
+  become: yes
+  tasks:
+    - name: create file
+      ansible.builtin.file:
+          path: /tmp/newFile
+          state: touch #to create a file
+      register: output
+
+    - name: Show registered output
+      ansible.builtin.debug:
+        var: {{ output }}
+
+    - name: Add UID to the file
+      ansible.builtin.lineinfile:
+        path: /tmp/newFile
+        line: "{{ output.uid }}"
