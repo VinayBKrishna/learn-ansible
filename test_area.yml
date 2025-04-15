@@ -26,9 +26,10 @@
 
     - name: To retrive a non-existant file and using block and rescue method
       block:
+      - name: Attempt to download the file
         ansible.builtin.get_url:
           url: "http://innaghiyev3c/index.html"
-          dest: /tmp/file2
+          dest: /tmp/file3
       rescue:
         - debug: msg= " the file does not exists! "
       always:
