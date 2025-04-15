@@ -31,9 +31,13 @@
           url: "http://innaghiyev3c/index.html"
           dest: /tmp/file3
       rescue:
-        - debug: msg= " the file does not exists! "
+        ansible.builtin.debug:
+          msg: "Failed to download the file, but rescued successfully!"
+
       always:
-        - debug: msg=" Play done! "
+        ansible.builtin.debug:
+          msg: "play done"
+
 
 
 
