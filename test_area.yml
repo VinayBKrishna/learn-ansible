@@ -19,7 +19,7 @@
         path: "{{ inv_file }}"
         line: " {{ items}} "
 
-      ansible.builtin.with_items:
+      with_items:
         - " {{ staff }} "
         - " {{ faculty }} "
         - " {{ other }} "
