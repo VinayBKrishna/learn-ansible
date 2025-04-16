@@ -4,12 +4,10 @@ staff:
   - bob
   - sam
   - mark
-
 faculty:
   - matt
   - alex
   - frank
-
 other:
   - will
   - jack
