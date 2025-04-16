@@ -2,6 +2,8 @@
 
 - hosts: labservers
   become: yes
+  vars_files:
+    - users.yml
   vars:
     inv_file: /tmp/user_file_list.txt
   tasks:
@@ -17,9 +19,8 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: " {{ items }} "
-
-      with_items: " {{ staff }} "
+        line: " {{ item }} "
+      loop: " {{ staff }} "
 
 
 
