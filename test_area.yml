@@ -3,7 +3,7 @@
 - hosts: labservers
   become: yes
   vars:
-    inv_file: /tmp/testing_file.txt
+    inv_file: /tmp/user_file_list.txt
   tasks:
     - name: 1st set of commands
       ansible.builtin.debug:
@@ -17,7 +17,12 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: " {{ groups['labservers']|join(' ') }} "
+        line: " {{ items}} "
+
+      ansible.builtin.with_items:
+        - " {{ staff }} "
+        - " {{ faculty }} "
+        - " {{ other }} "
 
 
 
