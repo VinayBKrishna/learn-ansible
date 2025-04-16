@@ -6,20 +6,16 @@
     - name: 1st set of commands
       ansible.builtin.debug:
         msg: "1st set of commands"
-      tags :
-        - one
-        -
-    - name: 2nd set of commands
-      ansible.builtin.debug:
-        msg: "2nd set of commands"
-      tags:
-        - two
-        -
-    - name: 3srd set of commands
-      ansible.builtin.debug:
-        msg: "3rd set of commands"
-      tags:
-        - three
+
+    - name: copy network file to the host
+      ansible.builtin.copy:
+        src: /network.j2
+        dest: /network.j2
+
+    - name: change to template
+      ansible.builtin.template:
+        src: /network.j2
+        dest: /network_template.j2
 
 
 

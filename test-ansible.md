@@ -90,6 +90,7 @@ all:                          #top level group with all hosts and child group
 
 #***************************Selectively Run Specific Tasks In Playbooks Using Tags***********************
 #tags we can deploy only application stage or only database stage
+#--tags is used to deploy specific tag and --skip-tag is used to skip that specific tag and run remaining tags
 
 
 
