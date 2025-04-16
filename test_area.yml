@@ -10,6 +10,10 @@
     - name: 1st set of commands
       ansible.builtin.debug:
         msg: "1st set of commands"
+    - name: Check if users.yml file exists
+      ansible.builtin.stat:
+        path: users.yml  # Replace with the path of your file
+      register: file_status
 
     - name: change to template
       ansible.builtin.file:
@@ -21,7 +25,7 @@
         path: "{{ inv_file }}"
         line: "{{ item }}"
       loop: "{{ faculty }}"
-
+      when: file_status.exists
 
 
 
