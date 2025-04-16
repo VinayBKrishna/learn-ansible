@@ -15,7 +15,7 @@
 
     - name: 1st set of commands
       ansible.builtin.debug:
-        var: file_status
+        var: faculty
 
     - name: change to template
       ansible.builtin.file:
