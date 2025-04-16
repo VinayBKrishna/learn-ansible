@@ -7,14 +7,9 @@
       ansible.builtin.debug:
         msg: "1st set of commands"
 
-    - name: copy network file to the host
-      ansible.builtin.copy:
-        src: /templates/network.j2
-        dest: /tmp/network.j2
-
     - name: change to template
       ansible.builtin.template:
-        src: /tmp/network.j2
+        src: /templates/network.j2
         dest: /network_template.txt
 
 
