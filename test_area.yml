@@ -7,7 +7,7 @@
     inv_file: /tmp/user_file_list_new.txt
 
   tasks:
-    - test_var: "{{% for host in groups['labservers'] %}{{ host }}{% if not loop.last %}, {% endif %}{% endfor %}}"
+    - test_var: "{{ % for host in groups['labservers'] %}{{ host }}{% if not loop.last %}, {% endif %}{% endfor % }}"
     - name: 1st set of commands
       ansible.builtin.debug:
         msg: hello
