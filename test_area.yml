@@ -10,7 +10,7 @@
 
     - name: Check if users.yml file exists
       ansible.builtin.stat:
-        path: users.yml  # Replace with the path of your file
+        path: /users.yml  # Replace with the path of your file
       register: file_status
 
     - name: 1st set of commands
@@ -27,7 +27,7 @@
         path: "{{ inv_file }}"
         line: "{{ item }}"
       loop: "{{ faculty }}"
-      when: file_status.exists
+      when: file_status.stat.exists
 
 
 
