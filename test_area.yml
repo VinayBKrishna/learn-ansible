@@ -19,8 +19,8 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: " {{ item }} "
-      loop: " {{ staff }} "
+        line: "{{ item }}"
+      loop:  "{{ staff }}"
 
 
 
