@@ -17,7 +17,7 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: " {{ groups['labservers']|join( "" ) }} "
+        line: " {{ groups['labservers']|join(' ') }} "
 
 
 
