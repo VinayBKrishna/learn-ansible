@@ -17,12 +17,10 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: " {{ items}} "
+        line: " {{ items }} "
 
-      with_items:
-        - " {{ staff }} "
-        - " {{ faculty }} "
-        - " {{ other }} "
+      with_items: " {{ staff }} "
+
 
 
 
