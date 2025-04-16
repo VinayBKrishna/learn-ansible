@@ -20,7 +20,7 @@
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
         line: "{{ item }}"
-      loop:  "{{ staff }}"
+      loop: "{{ staff }}"
 
 
 
