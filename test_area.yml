@@ -2,7 +2,7 @@
 
 - hosts: labservers
   become: yes
-  vars_files: users.yml
+  vars_files: ./users.yml
   vars:
     inv_file: /tmp/user_file_list.txt
 
@@ -10,7 +10,7 @@
 
     - name: Check if users.yml file exists
       ansible.builtin.stat:
-        path: /users.yml  # Replace with the path of your file
+        path: ./users.yml  # Replace with the path of your file
       register: file_status
 
     - name: 1st set of commands
