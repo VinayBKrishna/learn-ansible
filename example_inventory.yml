@@ -1,6 +1,8 @@
 all:
   children:
     webservers:
-      hosts: 172.31.85.255
+      hosts:
+        172.31.85.255
     labservers:
-      hosts: 172.31.5.108
+      hosts:
+        172.31.5.108
