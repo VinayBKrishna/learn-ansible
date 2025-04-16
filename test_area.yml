@@ -9,12 +9,12 @@
 
     - name: copy network file to the host
       ansible.builtin.copy:
-        src: /network.j2
-        dest: /network.j2
+        src: /templates/network.j2
+        dest: /tmp/network.j2
 
     - name: change to template
       ansible.builtin.template:
-        src: /network.j2
+        src: /tmp/network.j2
         dest: /network_template.j2
 
 
