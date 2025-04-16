@@ -10,7 +10,7 @@
     - name: change to template
       ansible.builtin.template:
         src: templates/network.j2
-        dest: /network_template.txt
+        dest: /tmp/network_template.txt
 
 
 
