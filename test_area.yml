@@ -11,7 +11,9 @@
     - name: 1st set of commands
       ansible.builtin.set_fact:
         test_var: "{{ groups['labservers'] | join(', ') }}"
-      ignore_error: yes
+      ignore_errors: yes
+
+
     - name: Debug the value of test_var
       ansible.builtin.debug:
         var: test_var
