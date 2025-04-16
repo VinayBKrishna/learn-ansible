@@ -2,15 +2,22 @@
 
 - hosts: labservers
   become: yes
+  vars:
+    inv_file: /tmp/testing_file.txt
   tasks:
     - name: 1st set of commands
       ansible.builtin.debug:
         msg: "1st set of commands"
 
     - name: change to template
-      ansible.builtin.template:
-        src: templates/network.j2
-        dest: /tmp/network_template.txt
+      ansible.builtin.file:
+        path: "{{ inv_file }}"
+        state: touch
+
+    - name: generate inventory
+      ansible.builtin.lineinfile:
+        path: "{{ inv_file }}"
+        line: " {{ groups['labservers']|join( "" ) }} "
 
 
 
