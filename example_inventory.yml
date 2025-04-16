@@ -3,6 +3,8 @@ all:
     webservers:
       hosts:
         172.31.85.255
+        222.33.11.333
     labservers:
       hosts:
         172.31.5.108
+        132.453.3.112
