@@ -3,7 +3,7 @@
 - hosts: labservers
   become: yes
   vars_files:
-    - users.yml
+    - /users.yml
   vars:
     inv_file: /tmp/user_file_list.txt
   tasks:
