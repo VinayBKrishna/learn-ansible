@@ -25,9 +25,10 @@
     - name: generate inventory
       ansible.builtin.lineinfile:
         path: "{{ inv_file }}"
-        line: "{{ item }}"
+        line: "{{ item | trim }}"
+        create: yes
       loop: "{{ faculty }}"
-      when: file_status.stat.exists
+
 
 
 
